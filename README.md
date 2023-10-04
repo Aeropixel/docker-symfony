@@ -16,7 +16,7 @@ docker-compose up
 
 After booting the container, you can use composer and the symfony cli insight the php-apache container:
 ```
-docker exec -it symfony-apache-php bash
+docker exec -it my_symfony-apache-php bash
 symfony check:requirements
 composer create-project symfony/skeleton ./
 ```
