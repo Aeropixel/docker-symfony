@@ -14,7 +14,7 @@ RUN apt-get -y update && apt-get install -y libicu-dev libzip-dev zip libjpeg-de
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-configure gd '--with-jpeg' '--with-freetype'
 RUN docker-php-ext-install intl opcache pdo_mysql zip gd
-RUN pecl install xdebug
+# RUN pecl install xdebug
 RUN a2enmod rewrite
 
 #INSTALL APCU
@@ -28,5 +28,8 @@ RUN echo "apc.enable=1" > /usr/local/etc/php/php.ini
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
-# Install NVM
-RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+# Install NVM, Node and NPM
+SHELL ["/bin/bash", "--login", "-i", "-c"]
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+RUN source /root/.bashrc && nvm install --lts
+SHELL ["/bin/bash", "--login", "-c"]
