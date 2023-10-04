@@ -1,6 +1,7 @@
-# Docker-Symfony-Stack
+# Docker-Symfony
 
 With this Docker-Symfony-Stack it's possible to setup a local development environment in seconds. Every component is selected for running Symfony 6 in a flavored way.
+Currently it has only .env configuration for MariaDB but as soon as possible it'll have also for others such as MySQL and PostgreSQL.
 
 ## Getting started
 Copy the .env.dist file and edit the entries to your needs:
